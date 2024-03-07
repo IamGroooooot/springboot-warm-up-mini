@@ -5,6 +5,8 @@ import com.warmupmini.warmupmini.dto.attendance.request.CreateTeamRequest;
 import com.warmupmini.warmupmini.repository.TeamRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TeamService {
     private final TeamRepository teamRepository;
@@ -18,5 +20,9 @@ public class TeamService {
         team.setName(createTeamRequest.getName());
         team.setManager(createTeamRequest.getManager());
         return teamRepository.save(team);
+    }
+
+    public List<Team> getAll() {
+        return teamRepository.findAll();
     }
 }

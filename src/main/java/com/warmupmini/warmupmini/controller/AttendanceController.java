@@ -4,9 +4,13 @@ import com.warmupmini.warmupmini.dto.attendance.request.CreateEmployeeRequest;
 import com.warmupmini.warmupmini.dto.attendance.request.CreateTeamRequest;
 import com.warmupmini.warmupmini.dto.attendance.response.CreateEmployeeResponse;
 import com.warmupmini.warmupmini.dto.attendance.response.CreateTeamResponse;
+import com.warmupmini.warmupmini.dto.attendance.response.GetTeamResponse;
 import com.warmupmini.warmupmini.service.attendance.EmployeeService;
 import com.warmupmini.warmupmini.service.attendance.TeamService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class AttendanceController {
@@ -29,8 +33,12 @@ public class AttendanceController {
     }
 
     @GetMapping("/teams")
-    private String getTeam() {
-        return "Teams";
+    private List<GetTeamResponse> getTeam() {
+        List<GetTeamResponse> teamResponses = new ArrayList<>();
+        for (var team : teamService.getAll()) {
+            teamResponses.add(new GetTeamResponse(team));
+        }
+        return teamResponses;
     }
 
     @GetMapping("/employees")
