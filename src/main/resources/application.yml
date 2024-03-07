@@ -1,0 +1,14 @@
+spring: # 예시입니다. 각자 환경에 맞게 설정해주세요.
+  datasource:
+    url: "jdbc:mysql://localhost:3306/company"
+    username: "root"
+    password: ""
+    driver-class-name: "com.mysql.cj.jdbc.Driver"
+  jpa:
+    hibernate:
+      ddl-auto: "update"
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
