@@ -4,6 +4,7 @@ import com.warmupmini.warmupmini.dto.attendance.request.CreateEmployeeRequest;
 import com.warmupmini.warmupmini.dto.attendance.request.CreateTeamRequest;
 import com.warmupmini.warmupmini.dto.attendance.response.CreateEmployeeResponse;
 import com.warmupmini.warmupmini.dto.attendance.response.CreateTeamResponse;
+import com.warmupmini.warmupmini.dto.attendance.response.GetEmployeeResponse;
 import com.warmupmini.warmupmini.dto.attendance.response.GetTeamResponse;
 import com.warmupmini.warmupmini.service.attendance.EmployeeService;
 import com.warmupmini.warmupmini.service.attendance.TeamService;
@@ -42,7 +43,11 @@ public class AttendanceController {
     }
 
     @GetMapping("/employees")
-    private String getEmployee() {
-        return "Employees";
+    private List<GetEmployeeResponse> getEmployee() {
+        List<GetEmployeeResponse> employeeResponses = new ArrayList<>();
+        for (var employee : employeeService.getAll()) {
+            employeeResponses.add(new GetEmployeeResponse(employee));
+        }
+        return employeeResponses;
     }
 }

@@ -1,5 +1,6 @@
 package com.warmupmini.warmupmini.dto.attendance.response;
 
+import com.warmupmini.warmupmini.domain.attendance.Employee;
 import com.warmupmini.warmupmini.domain.attendance.Role;
 
 import java.time.LocalDate;
@@ -10,6 +11,14 @@ public class GetEmployeeResponse {
     public Role role;
     public LocalDate birthday;
     public LocalDate workStartDate;
+
+    public GetEmployeeResponse(Employee employee) {
+        this.name = employee.getName();
+        this.teamName = employee.getTeam().getName();
+        this.role = employee.isManager() ? Role.MANGER : Role.MEMBER;
+        this.birthday = employee.getBirthday();
+        this.workStartDate = employee.getWorkStartDate();
+    }
 
     public String getName() {
         return name;

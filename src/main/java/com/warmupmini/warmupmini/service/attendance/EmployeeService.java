@@ -8,6 +8,8 @@ import com.warmupmini.warmupmini.repository.EmployeeRepository;
 import com.warmupmini.warmupmini.repository.TeamRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmployeeService {
     private final EmployeeRepository employeeRepository;
@@ -27,5 +29,9 @@ public class EmployeeService {
         Team team = teamRepository.findByName(createEmployeeRequest.getTeamName());
         employee.setTeam(team);
         return employeeRepository.save(employee);
+    }
+
+    public List<Employee> getAll() {
+        return employeeRepository.findAll();
     }
 }
