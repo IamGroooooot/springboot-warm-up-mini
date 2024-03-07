@@ -70,5 +70,13 @@ CREATE TABLE teams (
 
 employees
 ```mysql
-
+CREATE TABLE employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    isManager BOOLEAN NOT NULL,
+    workStartDate DATE NOT NULL,
+    birthday DATE NOT NULL,
+    teamId INT,
+    FOREIGN KEY (teamId) REFERENCES teams(id)
+);
 ```
