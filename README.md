@@ -1,1 +1,1 @@
-# springboot-warm-up-mini
+# 스프링 부트 워밍업 - 미니 프로젝트
