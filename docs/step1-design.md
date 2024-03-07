@@ -72,10 +72,10 @@ employees
 ```mysql
 CREATE TABLE employees (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    isManager BOOLEAN NOT NULL,
-    workStartDate DATE NOT NULL,
-    birthday DATE NOT NULL,
+    name VARCHAR(255) NOT NULL DEFAULT '',
+    isManager BOOLEAN NOT NULL DEFAULT FALSE,
+    workStartDate DATE,
+    birthday DATE,
     teamId INT,
     FOREIGN KEY (teamId) REFERENCES teams(id)
 );
