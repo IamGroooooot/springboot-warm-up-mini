@@ -1,6 +1,7 @@
 package com.warmupmini.warmupmini.controller;
 
 import com.warmupmini.warmupmini.dto.attendance.request.CreateTeamRequest;
+import com.warmupmini.warmupmini.dto.attendance.response.CreateTeamResponse;
 import com.warmupmini.warmupmini.service.attendance.EmployeeService;
 import com.warmupmini.warmupmini.service.attendance.TeamService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,9 +20,8 @@ public class AttendanceController {
     }
 
     @PostMapping("/teams")
-    private String createTeam(@RequestBody CreateTeamRequest createTeamRequest) {
-
-        return "Team created";
+    private CreateTeamResponse createTeam(@RequestBody CreateTeamRequest createTeamRequest) {
+        return new CreateTeamResponse(teamService.save(createTeamRequest).getId());
     }
 
     @PostMapping("/employees")

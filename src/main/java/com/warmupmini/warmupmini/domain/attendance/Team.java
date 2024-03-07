@@ -13,6 +13,8 @@ public class Team {
 
     private String name;
 
+    private String manager;
+
     @OneToMany(mappedBy = "team")
     private Set<Employee> employees;
 
@@ -39,5 +41,13 @@ public class Team {
 
     public void setEmployees(Set<Employee> employees) {
         this.employees = employees;
+    }
+
+    public void setManager(String manager) {
+        this.manager = manager;
+    }
+
+    public String getManager() {
+        return manager;
     }
 }
