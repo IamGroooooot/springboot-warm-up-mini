@@ -4,6 +4,7 @@
 
 ## 요구사항
 
-1. [1단계](docs/step1.md)
+1. [1단계 요구사항](docs/step1.md)
+   - [1단계 설계](docs/step1-design.md)
 2. tbd
 3. tbd
