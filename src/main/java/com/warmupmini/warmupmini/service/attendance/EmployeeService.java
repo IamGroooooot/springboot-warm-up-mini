@@ -6,6 +6,7 @@ import com.warmupmini.warmupmini.domain.attendance.Team;
 import com.warmupmini.warmupmini.dto.attendance.request.CreateEmployeeRequest;
 import com.warmupmini.warmupmini.repository.EmployeeRepository;
 import com.warmupmini.warmupmini.repository.TeamRepository;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class EmployeeService {
         this.teamRepository = teamRepository;
     }
 
+    @Transactional
     public Employee save(CreateEmployeeRequest createEmployeeRequest) {
         Employee employee = new Employee();
         employee.setBirthday(createEmployeeRequest.getBirthDate());
@@ -31,6 +33,7 @@ public class EmployeeService {
         return employeeRepository.save(employee);
     }
 
+    @Transactional(readOnly = true)
     public List<Employee> getAll() {
         return employeeRepository.findAll();
     }
